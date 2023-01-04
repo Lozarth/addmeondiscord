@@ -4,49 +4,71 @@
         <title>Add Lozarth on Discord</title>
     </head>
     <body>
-        <h1 id="countdown">Beaming profile to Discord in 5 seconds...</h1>
+        <h1 id='countdown'>Beaming profile to Discord in 5 seconds...</h1>
 
-        <p>If it doesn't work, click <a href="discord://-/users/339492485854396426">here</a>.</p>
+        <p id='manual'>If it doesn't work, click <a href='discord://-/users/339492485854396426'>here</a>.</p>
+
+        <!-- Github Source footer -->
+        <a id='source' href='https://github.com/Lozarth/addmeondiscord'>Website Source</a>
 
         <script>
-            const countdown = document.getElementById("countdown")
-            setInterval(function() {
-                const seconds = parseInt(countdown.innerHTML.split(" ")[5])
-                if (seconds > 1) {
-                    countdown.innerHTML = countdown.innerHTML.replace(seconds, seconds - 1)
-                } else {
-                    countdown.innerHTML = "Beaming profile to Discord..."
-                }
-            }, 1000)
+            const countdown = document.getElementById('countdown')
 
-            setTimeout(function() {
-                window.location.href = "discord://-/users/339492485854396426";
-            }, 5000)
+            function closeCountdown() {
+                let closeTime = 10
+                const interval = setInterval(function() {
+                    closeTime--
+                    countdown.innerHTML = `Closing in ${closeTime} seconds...`
+                    if (closeTime == 0) {
+                        window.close()
+                    }
+                }, 1000)
+            }
+            
+            function redirectCountdown() {
+                let redirectTime = 5
+                const interval = setInterval(function() {
+                    redirectTime--
+                    countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
+                    if (redirectTime == 0) {
+                        window.location.href = 'discord://-/users/339492485854396426'
+                        clearInterval(interval)
+                        countdown.innerHTML = 'Closing in 10 seconds...'
+                        closeCountdown()
+                    }
+                }, 1000)
+            }
+
+            redirectCountdown()
         </script>
 
         <style>
-            /* Simple modern dark theme */
+            /* Discord theme and font */
             body {
-                background-color: #2c2f33;
-                color: #fff;
+                background-color: #2f3136;
+                color: #dcddde;
+                font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             }
 
-            h1 {
+            /* Countdown */
+            #countdown {
                 font-size: 2em;
-                font-weight: 400;
-                margin: 0;
                 text-align: center;
-                margin-top: 50px;
-                font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
             }
 
-            p {
-                font-size: 1.5em;
-                font-weight: 300;
-                margin: 0;
+            /* Manual link */
+            #manual {
                 text-align: center;
-                margin-top: 20px;
-                font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+
+            /* Github Source footer */
+            #source {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin: 10px;
+                color: #dcddde;
+                text-decoration: none;
             }
         </style>
     </body>
