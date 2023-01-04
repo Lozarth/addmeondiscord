@@ -18,9 +18,12 @@
                 let closeTime = 10
                 const interval = setInterval(function() {
                     closeTime--
-                    countdown.innerHTML = `Closing in ${closeTime} seconds...`
-                    if (closeTime == 0) {
+                    
+                    if (closeTime <= 0) {
+                        clearInterval(interval)
                         window.close()
+                    } else {
+                        countdown.innerHTML = `Closing in ${closeTime} seconds...`
                     }
                 }, 1000)
             }
@@ -29,12 +32,14 @@
                 let redirectTime = 5
                 const interval = setInterval(function() {
                     redirectTime--
-                    countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
-                    if (redirectTime == 0) {
+
+                    if (redirectTime <= 0) {
                         window.location.href = 'discord://-/users/339492485854396426'
                         clearInterval(interval)
                         countdown.innerHTML = 'Closing in 10 seconds...'
                         closeCountdown()
+                    } else {
+                        countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
                     }
                 }, 1000)
             }
@@ -43,21 +48,25 @@
         </script>
 
         <style>
+            /* Discord theme and font */
             body {
                 background-color: #2f3136;
                 color: #dcddde;
                 font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             }
 
+            /* Countdown */
             #countdown {
                 font-size: 2em;
                 text-align: center;
             }
 
+            /* Manual link */
             #manual {
                 text-align: center;
             }
-            
+
+            /* Github Source footer */
             #source {
                 position: absolute;
                 bottom: 0;
