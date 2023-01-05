@@ -12,20 +12,6 @@
 
         <script>
             const countdown = document.getElementById('countdown')
-
-            function closeCountdown() {
-                let closeTime = 10
-                const interval = setInterval(function() {
-                    closeTime--
-
-                    if (closeTime <= 0) {
-                        clearInterval(interval)
-                        window.close()
-                    } else {
-                        countdown.innerHTML = `Closing in ${closeTime} seconds...`
-                    }
-                }, 1000)
-            }
             
             function redirectCountdown() {
                 let redirectTime = 5
@@ -35,8 +21,6 @@
                     if (redirectTime <= 0) {
                         window.location.href = 'discord://-/users/339492485854396426'
                         clearInterval(interval)
-                        countdown.innerHTML = 'Closing in 10 seconds...'
-                        closeCountdown()
                     } else {
                         countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
                     }
