@@ -8,6 +8,7 @@ A simple website for redirecting users to your Discord profile via your user ID
 https://discordprofile.lozarth.xyz/#xxxxxxxxxxxx
 3. Replace the x's with your Discord ID **(Leave the hashtag!)**
 
+Example:
 ![example](https://raw.githubusercontent.com/Lozarth/addmeondiscord/main/example.png)
 
 You can use this link to redirect people to your Discord profile using your ID instead of sharing your ever-changing username and tag.
