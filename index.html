@@ -8,6 +8,10 @@
         var id = window.location.hash.substr(1)
         console.log(id)
 
+        if (id.startsWith('#')) {
+            id = id.substr(1)
+        }
+
         if (id === undefined || id === '' || id === null || isNaN(id)) {
             window.location.href = '/instructions.html'
         }
@@ -38,6 +42,7 @@
 
                 if (redirectTime === 0) {
                     console.log(id)
+                    
                     countdown.innerHTML = `We've beamed the profile to your Discord app.`
                     clearInterval(interval)
                     window.location.href = `discord://-/users/${id}`
