@@ -16,3 +16,8 @@ You can use this link to redirect people to your Discord profile using your ID i
 This link will send your profile to their Discord client or on mobile, to their Discord app.
 
 Alternatively, if they do not have Discord installed on their device, they can simply click on the hyperlink which leads to your profile on the web version of Discord.
+
+# Discord Protocol
+This website utilizes Discord's protocol to function
+
+https://gist.github.com/ghostrider-05/8f1a0bfc27c7c4509b4ea4e8ce718af0
