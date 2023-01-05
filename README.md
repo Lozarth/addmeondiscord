@@ -14,4 +14,4 @@ You can use this link to redirect people to your Discord profile using your ID i
 
 This link will send your profile to their Discord client or on mobile, to their Discord app.
 
-Alternatively, if they do not have Discord installed on their device they can simply click on the hyperlink which leads to the web version of your profile.
+Alternatively, if they do not have Discord installed on their device, they can simply click on the hyperlink which leads to your profile on the web version of Discord.
