@@ -24,7 +24,7 @@
         const manualurl = document.getElementById('manualurl')
 
         manualurl.href = `https://discord.com/users/${id}`
-        
+
         // ----- //
 
         const countdown = document.getElementById('countdown')
@@ -35,10 +35,10 @@
             const interval = setInterval(function () {
                 redirectTime--
 
-                if (redirectTime == 0) {
+                if (redirectTime === 0) {
                     countdown.innerHTML = `We've beamed the profile to your Discord app.\nYou can close this browser tab or open it with the web version below.`
-                    window.location.href = protocolUrl
                     clearInterval(interval)
+                    window.location.href = `discord://~/users/${id}`
                 } else {
                     countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
                 }
