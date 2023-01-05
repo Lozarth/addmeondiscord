@@ -4,9 +4,9 @@
 <head>
     <title>Profile - Add me on Discord</title>
 
-    <meta id="metatitle" property="og:title" content="" />
-    <meta id="metadescription" property="og:description" content="https://discordprofile.lozarth.xyz/" />
-    <meta id="metaimage" property="og:image" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="https://discordprofile.lozarth.xyz/" />
+    <meta property="og:image" content="" />
     <meta property="og:url" content="https://discordprofile.lozarth.xyz/" />
     <meta property="og:type" content="website" />
 
@@ -47,11 +47,11 @@
 
                 document.title = `${data.username}#${data.discriminator} - Add me on Discord`
 
-                const metaTitle = document.getElementById('metatitle')
+                const metaTitle = document.getElementsByTagName('meta')[0]
                 metaTitle.property = 'og:title'
                 metaTitle.content = `Add ${data.username}#${data.discriminator} on Discord!`
 
-                const metaImage = document.getElementById('metaimage')
+                const metaImage = document.getElementsByTagName('meta')[2]
                 metaImage.property = 'og:image'
                 metaImage.content = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`
             })
