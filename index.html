@@ -2,13 +2,7 @@
 <html>
 
 <head>
-    <title>Profile - Add me on Discord</title>
-
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="https://discordprofile.lozarth.xyz/" />
-    <meta property="og:image" content="" />
-    <meta property="og:url" content="https://discordprofile.lozarth.xyz/" />
-    <meta property="og:type" content="website" />
+    <title>Add me on Discord</title>
 
     <script>
         var id = window.location.hash.substr(1)
@@ -21,40 +15,6 @@
         if (id === undefined || id === '' || id === null || isNaN(id)) {
             window.location.href = '/instructions.html'
         }
-    </script>
-
-    <script>
-        // Fetch user info from replit proxy and edit meta tags and title accordingly
-        fetch(`https://addmeondiscord.lozarth.repl.co/userinfo/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                /*
-                Example data:
-                    {
-                        "id": "339492485854396426",
-                        "username": "shrigma",
-                        "avatar": "da2a8e2e5d4edee5ee2b1fffbf662944",
-                        "avatar_decoration": null,
-                        "discriminator": "1957",
-                        "public_flags": 4194304,
-                        "banner": "e3ae8548630df417644106785c70c8c8",
-                        "banner_color": null,
-                        "accent_color": null
-                    }
-                */
-
-                console.log(data)
-
-                document.title = `${data.username}#${data.discriminator} - Add me on Discord`
-
-                const metaTitle = document.getElementsByTagName('meta')[0]
-                metaTitle.property = 'og:title'
-                metaTitle.content = `Add ${data.username}#${data.discriminator} on Discord!`
-
-                const metaImage = document.getElementsByTagName('meta')[2]
-                metaImage.property = 'og:image'
-                metaImage.content = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`
-            })
     </script>
 </head>
 
