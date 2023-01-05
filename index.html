@@ -42,7 +42,7 @@
 
                 if (redirectTime === 0) {
                     console.log(id)
-                    
+
                     countdown.innerHTML = `We've beamed the profile to your Discord app.`
                     clearInterval(interval)
                     window.location.href = `discord://-/users/${id}`
@@ -69,6 +69,11 @@
 
         #manual {
             text-align: center;
+        }
+
+        #manualurl {
+            color: #46a7ff;
+            text-decoration: none;
         }
 
         #source {
