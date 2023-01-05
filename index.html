@@ -5,11 +5,11 @@
     <title>Profile - Add me on Discord</title>
 
     <script>
-        var id = window.location.href.split('/')[3] // Get id from URL, discordprofile.lozarth.xyz/xxxxxxxxxxx
+        var id = window.location.hash.substr(1)
         console.log(id)
 
         if (id === undefined || id === '' || id === null || isNaN(id)) {
-            window.location.href = 'https://discordprofile.lozarth.xyz/instructions.html'
+            window.location.href = '/instructions.html'
         }
     </script>
 </head>
@@ -37,6 +37,7 @@
                 redirectTime--
 
                 if (redirectTime === 0) {
+                    console.log(id)
                     countdown.innerHTML = `We've beamed the profile to your Discord app.`
                     clearInterval(interval)
                     window.location.href = `discord://~/users/${id}`
