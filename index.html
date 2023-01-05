@@ -40,7 +40,7 @@
                     console.log(id)
                     countdown.innerHTML = `We've beamed the profile to your Discord app.`
                     clearInterval(interval)
-                    window.location.href = `discord://~/users/${id}`
+                    window.location.href = `discord://-/users/${id}`
                 } else {
                     countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
                 }
