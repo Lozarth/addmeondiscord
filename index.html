@@ -1,59 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Add Lozarth on Discord</title>
-    </head>
-    <body>
-        <h1 id='countdown'>Beaming profile to Discord in 5 seconds...</h1>
 
-        <p id='manual'>Or press <a href='discord://-/users/339492485854396426'>here</a>.</p>
+<head>
+    <title>Profile - Add me on Discord</title>
 
-        <a id='source' href='https://github.com/Lozarth/addmeondiscord'>Website Source</a>
+    <script>
+        var id = window.location.href.split('/')[3] // Get id from URL, discordprofile.lozarth.xyz/xxxxxxxxxxx
 
-        <script>
-            const countdown = document.getElementById('countdown')
-            
-            function redirectCountdown() {
-                let redirectTime = 5
-                const interval = setInterval(function() {
-                    redirectTime--
+        if (id == undefined) {
+            return window.location.href = 'https://discordprofile.lozarth.xyz/instructions.html'
+        }
 
-                    if (redirectTime <= 0) {
-                        window.location.href = 'discord://-/users/339492485854396426'
-                        clearInterval(interval)
-                    } else {
-                        countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
-                    }
-                }, 1000)
-            }
+        var protocolUrl = `discord://-/users/${id}`
+        
+        const manualurl = document.getElementById('manualurl')
+        manualurl.href = protocolUrl
+    </script>
+</head>
 
-            redirectCountdown()
-        </script>
+<body>
+    <h1 id='countdown'>Beaming profile to Discord in 5 seconds...</h1>
 
-        <style>
-            body {
-                background-color: #2f3136;
-                color: #dcddde;
-                font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            }
+    <p id='manual'>Or press <a id="manualurl" href=''>here</a>.</p>
 
-            #countdown {
-                font-size: 2em;
-                text-align: center;
-            }
+    <a id='source' href='https://github.com/Lozarth/addmeondiscord'>Website Source</a>
 
-            #manual {
-                text-align: center;
-            }
+    <script>
+        const countdown = document.getElementById('countdown')
 
-            #source {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                margin: 10px;
-                color: #dcddde;
-                text-decoration: none;
-            }
-        </style>
-    </body>
+        function redirectCountdown() {
+            let redirectTime = 5
+            const interval = setInterval(function () {
+                redirectTime--
+
+                if (redirectTime <= 0) {
+                    window.location.href = protocolUrl
+                    clearInterval(interval)
+                } else {
+                    countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
+                }
+            }, 1000)
+        }
+
+        redirectCountdown()
+    </script>
+
+    <style>
+        body {
+            background-color: #2f3136;
+            color: #dcddde;
+            font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        #countdown {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        #manual {
+            text-align: center;
+        }
+
+        #source {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 10px;
+            color: #dcddde;
+            text-decoration: none;
+        }
+    </style>
+</body>
+
 </html>
