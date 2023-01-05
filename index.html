@@ -7,33 +7,36 @@
     <script>
         var id = window.location.href.split('/')[3] // Get id from URL, discordprofile.lozarth.xyz/xxxxxxxxxxx
 
-        if (id == undefined) {
-            return window.location.href = 'https://discordprofile.lozarth.xyz/instructions.html'
+        if (id === undefined) {
+            window.location.href = 'https://discordprofile.lozarth.xyz/instructions.html'
         }
-
-        var protocolUrl = `discord://-/users/${id}`
-        
-        const manualurl = document.getElementById('manualurl')
-        manualurl.href = protocolUrl
     </script>
 </head>
 
 <body>
     <h1 id='countdown'>Beaming profile to Discord in 5 seconds...</h1>
 
-    <p id='manual'>Or press <a id="manualurl" href=''>here</a>.</p>
+    <p id='manual'>Or use the web version <a id="manualurl" href=''>here</a>.</p>
 
     <a id='source' href='https://github.com/Lozarth/addmeondiscord'>Website Source</a>
 
     <script>
+        const manualurl = document.getElementById('manualurl')
+
+        manualurl.href = `https://discord.com/users/${id}`
+        
+        // ----- //
+
         const countdown = document.getElementById('countdown')
 
         function redirectCountdown() {
             let redirectTime = 5
+
             const interval = setInterval(function () {
                 redirectTime--
 
-                if (redirectTime <= 0) {
+                if (redirectTime == 0) {
+                    countdown.innerHTML = `We've beamed the profile to your Discord app.\nYou can close this browser tab or open it with the web version below.`
                     window.location.href = protocolUrl
                     clearInterval(interval)
                 } else {
