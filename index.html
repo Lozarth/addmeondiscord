@@ -56,7 +56,9 @@
                 metaImage.content = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`
 
 
-                document.getElementsByTagName('head')[0].appendChild(meta)
+                document.getElementsByTagName('head')[0].appendChild(metaTitle)
+                document.getElementsByTagName('head')[0].appendChild(metaDescription)
+                document.getElementsByTagName('head')[0].appendChild(metaImage)
             })
     </script>
 </head>
