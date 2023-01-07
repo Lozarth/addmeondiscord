@@ -8,20 +8,19 @@
 
     <script>
         var id = window.location.hash.substr(1)
-        console.log(id)
 
         if (id.startsWith('#')) {
             id = id.substr(1)
         }
 
-        if (id === undefined || id === '' || id === null || isNaN(id)) {
+        if (isNaN(id) || id.length < 17 || id.length > 19) {
             window.location.href = '/instructions.html'
         }
     </script>
 </head>
 
 <body>
-    <h1 id='countdown'>Beaming profile to Discord in 5 seconds...</h1>
+    <h1 id='countdown'>Beaming profile up to Discord in 5 seconds...</h1>
 
     <p id='manual'>Don't have Discord installed? Use the web version <a id="manualurl" href=''>here</a>.</p>
 
@@ -36,17 +35,13 @@
 
         const countdown = document.getElementById('countdown')
 
-        function redirectCountdown() {
-            let redirectTime = 5
-
+        function redirectCountdown(redirectTime) {
             const interval = setInterval(function () {
-                redirectTime--
+                redirectTime-- // Javascript decrement operator | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement
 
                 if (redirectTime === 0) {
-                    console.log(id)
-
-                    countdown.innerHTML = `We've beamed the profile to your Discord app.`
                     clearInterval(interval)
+                    countdown.innerHTML = 'We\'ve beamed the profile to your Discord app.'
                     window.location.href = `discord://-/users/${id}`
                 } else {
                     countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
@@ -54,7 +49,7 @@
             }, 1000)
         }
 
-        redirectCountdown()
+        redirectCountdown(5)
     </script>
 
     <style>
