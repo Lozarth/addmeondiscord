@@ -6,15 +6,16 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Scripts in the head are executed before the body is loaded -->
     <script>
-        var id = window.location.hash.substr(1)
+        var id = window.location.hash.substr(1) // Vars are global variables and can be accessed anywhere in the script | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 
         if (id.startsWith('#')) {
             id = id.substr(1)
         }
 
         if (isNaN(id) || id.length < 17 || id.length > 19) {
-            window.location.href = '/instructions.html'
+            window.location.href = '/instructions.html' // Using /instructions.html will redirect to the instructions page on the same domain | https://developer.mozilla.org/en-US/docs/Web/API/Location
         }
     </script>
 </head>
@@ -22,16 +23,14 @@
 <body>
     <h1 id='countdown'>Beaming profile up to Discord in 5 seconds...</h1>
 
+    <h3 id="closewindow" hidden="true">You can close this window now.</h3>
+
     <p id='manual'>Don't have Discord installed? Use the web version <a id="manualurl" href=''>here</a>.</p>
 
     <a id='source' href='https://github.com/Lozarth/addmeondiscord'>Website Source</a>
 
     <script>
-        const manualurl = document.getElementById('manualurl')
-
-        manualurl.href = `https://discord.com/users/${id}`
-
-        // ----- //
+        document.getElementById('manualurl').href = `https://discord.com/users/${id}`
 
         const countdown = document.getElementById('countdown')
 
@@ -42,7 +41,8 @@
                 if (redirectTime === 0) {
                     clearInterval(interval)
                     countdown.innerHTML = 'We\'ve beamed the profile to your Discord app.'
-                    window.location.href = `discord://-/users/${id}`
+                    document.getElementById('closewindow').hidden = false
+                    window.location.href = `discord://-/users/${id}` // Uses the Discord protocol to open the user profile | https://gist.github.com/ghostrider-05/8f1a0bfc27c7c4509b4ea4e8ce718af0
                 } else {
                     countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
                 }
