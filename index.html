@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
     <title>Profile - Add me on Discord</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8868412699021244' crossorigin='anonymous'></script>
 
     <!-- Scripts in the head are executed before the body is loaded -->
     <script>
@@ -23,9 +24,9 @@
 <body>
     <h1 id='countdown'>Beaming profile up to Discord in 5 seconds...</h1>
 
-    <h3 id="closewindow" hidden="true">You can close this window now.</h3>
+    <h3 id='closewindow' hidden='true'>You can close this window now.</h3>
 
-    <p id='manual'>Don't have Discord installed? Use the web version <a id="manualurl" href=''>here</a>.</p>
+    <p id='manual'>Don't have Discord installed? Use the web version <a id='manualurl' href=''>here</a>.</p>
 
     <a id='source' href='https://github.com/Lozarth/addmeondiscord'>Website Source</a>
 
@@ -44,7 +45,7 @@
                     document.getElementById('closewindow').hidden = false
                     window.location.href = `discord://-/users/${id}` // Uses the Discord protocol to open the user profile | https://gist.github.com/ghostrider-05/8f1a0bfc27c7c4509b4ea4e8ce718af0
                 } else {
-                    countdown.innerHTML = `Beaming profile to Discord in ${redirectTime} seconds...`
+                    countdown.innerHTML = `Beaming profile up to Discord in ${redirectTime} seconds...`
                 }
             }, 1000)
         }
