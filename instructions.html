@@ -18,8 +18,10 @@
 
     <p>Copy your Discord ID</p>
     <p>Then add your Discord ID to the end of this link (click to copy)</p>
-    <a href='https://discord.profile.md/#xxxxxxxxxxxx'
-        onclick='window.prompt("Copy to clipboard: Ctrl+C, Enter", "https://discord.profile.md/#xxxxxxxxxxxx"); return false;'>https://discord.profile.md/#xxxxxxxxxxxx</a>
+    <div>
+        <a href='https://discord.profile.md/#xxxxxxxxxxxx'
+            onclick='window.prompt("Copy to clipboard: Ctrl+C, Enter", "https://discord.profile.md/#xxxxxxxxxxxx"); return false;'>https://discord.profile.md/#xxxxxxxxxxxx</a>
+    </div>
     <p>Replace the x's with your Discord ID <b>(Leave the hashtag!)</b></p>
 
     <p>You can use this link to redirect people to your Discord profile using your ID instead of sharing your
@@ -48,6 +50,13 @@
         a {
             color: #7289da;
             text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        div {
             text-align: center;
         }
 
